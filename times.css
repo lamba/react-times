@@ -1,0 +1,270 @@
+.header, 
+.header-nav, 
+.page-title, 
+.article-promo-full-width, 
+.article-promo-23-width, 
+.article-promo-full-width-detail,
+.article-promo-13,
+.footer {
+	box-shadow: 0.05em 0.05em .5em #cccccc;
+	left: 0;
+	right: 0;
+  	border: #ffffff;
+	position: absolute;
+	font-family: arial;
+}
+
+.header, 
+.header-nav {
+	margin-left: 4em;
+	margin-right: 4em;
+}
+
+.article-top-section,
+.article-promo-full-width, 
+.footer {
+	margin-left: 6em;
+	margin-right: 6em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+ul {
+	margin-top: 0em;
+}
+
+li {
+	margin-top: 0.5em;
+	list-style: none;
+	padding-right: 1.5em;
+	padding-bottom: 0.6em;
+	font-size: 125%;
+	font-weight: 400;
+}
+
+li:first-child {
+	border-bottom: 0.2em solid #2A96CE;
+}
+
+.header {
+	top:0em;	
+	height:6em;
+  	background: #333333;
+}
+
+.search {
+	position: relative;
+	top: 2.75em;
+	color: #ffffff;
+	height: 3em;
+	width: 14em;
+	background: #666666; 
+	float: right;
+	margin-right: 2em;
+	border-radius: 2em;
+	border: none;
+	padding-left: 3em;
+    background-image: url('search.svg.png');
+    background-size: 1.5em 1.5em;
+    background-repeat: no-repeat;
+    background-position: 1em 1em;
+}
+
+input:focus {
+	outline: none;
+}
+
+::-webkit-input-placeholder {
+	font-size: 150%;
+	padding-left: 2em;
+	color: #ffffff;
+}
+
+.header-text {
+	position: absolute;
+	color: white;
+	font-family: arial;
+	font-size: 175%;
+	margin-top: 1.25em;
+	margin-bottom: 1em;
+	text-align: center;
+	width: 6em;
+	margin-left: 42%;
+}
+
+.header-nav {
+	top: 6em;
+	height: 3em;
+}
+
+.header-nav-item {
+	text-align: center;
+	float: left;
+	padding-left: 2em;
+	font-family: arial;
+	color: black;
+}
+
+.page-title {
+	position: relative;
+	top: 4em;
+	height: 2em;
+	color: black;
+	border: #000000;
+	box-shadow: 0 0 0 0;
+	font-size: 250%;
+	font-family: times;
+	margin-left: 2.5em;
+}
+
+.article-top-section {
+	position: relative;
+	top: 8em;
+	height: 30em;
+}
+
+.article-promo-23-width {
+	position: relative;
+	height: 24em;
+	color: black;
+	width: 63%;
+	float: left;
+}
+
+.article-promo-13 {
+	position: relative;
+	height: 11em;
+	color: black;
+	width: 32%;
+	float: left;
+	margin-left: 2em;
+	margin-bottom: 2em;
+}
+
+.article-promo-23-width-top {
+	position: relative;
+	top: 0em;
+	height: 12em;
+	background: #cccccc;
+	color: black;
+	float: left;
+	width: 100%;
+}
+
+.article-promo-23-width-detail {
+	width: 18em;
+	float: left;
+}
+
+.article-promo-23-title {
+	position: relative;
+	color: #000000;
+	margin-left: 0.5em;
+	font-size: 200%;
+	width: 6em;
+	float: left;
+}
+
+.article-promo-23-byline {
+	position: relative;
+	color: #ffffff;
+	margin-left: 1em;
+	top: 0em;
+	width: 9em;
+	font-size: 85%;
+	float: left;
+}
+
+.article-promo-23-date-time {
+	color: #00008B;
+	margin-left: 1em;
+	width: 8em;
+	float: left;
+	font-size: 85%;
+}
+
+.article-promo-23-body {
+	position: relative;
+	top: 2em;
+	margin-left: 2em;
+	color: #666666;
+}
+
+.image-large {
+	background: #cccccc;
+	height: 12em;
+	width: 12em;
+	float: left;
+	color: #ffffff;
+	text-align: center;
+}
+
+.image-small {
+	background: #ffffff;
+	height: 10em;
+	width: 10em;
+	margin: 1em 1em 1em 1em;
+	float: right;
+	color: #666666;
+	text-align: center;
+}
+
+.article-promo-full-width {
+	position: relative;
+	top: 2em;
+	height: 12em;
+	color: black;
+	font-size: 30;
+}
+
+.article-promo-full-width-detail {
+	position: relative;
+	top: 0em;
+	height: 12em;
+	margin-left: 12em;
+	margin-right: 0em;
+}
+
+.byline {
+	position: relative;
+	color: #aaaaaa;
+	margin-left: 1em;
+	top: 3em;
+	width: 9em;
+	float: left;
+	font-size: 85%;
+}
+
+.date-time {
+	position: relative;
+	color: #00008B;
+	margin-left: 1em;
+	top: 3em;
+	width: 8em;
+	float: left;
+	font-size: 85%;
+}
+
+.article-promo-title {
+	position: relative;
+	color: #000000;
+	margin-left: 0.5em;
+	font-size: 200%;
+	width: 4em;
+}
+
+.article-promo-body {
+	position: relative;
+	color: #666666;
+	margin-left: 2em;
+	width: 8em;
+	font-size: 100%;
+}
+
+.footer {
+	position: relative;
+	top: 0em;
+	height: 12em;
+	margin-top: 1em;
+	box-shadow: 0 0 0 0;
+}
