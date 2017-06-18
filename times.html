@@ -1,4 +1,21 @@
-<!-- Puneet Lamba -->
+<!-- 
+  Author: Puneet Lamba
+  Date: June 18, 2017
+  Contact: puneet@inventica.com
+  
+  TODOs/Caveats
+
+  -No styleguide provided. So fonts, colors, sizes are approximate
+  -Responsive design is pending
+  -JS/HTML combined into one file for simplicity
+  -Page transitions haven't been coded since the use cases are unclear
+  -Simple state management has been demoed using the Home and More menu items
+
+  NOTES
+  -Hex code picker http://htmlcolorcodes.com/
+
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,6 +35,16 @@
 
       var Times = React.createClass({
 
+        propTypes: {
+          pageTitle: React.PropTypes.string.isRequired,
+        },
+
+        getDefaultProps: function() {
+          return {
+            pageTitle: "Top Stories",
+          };
+        },
+
         render: function() {
           return (
             //React.DOM.x is a convenience wrapper for React.createElement('x', ...)
@@ -35,7 +62,25 @@
               this._renderArticlePromoFullWidth("Title8","Body8","By Steffi Graf","8:50 AM ET"),
               this._renderFooter()
             )
-          )
+          )            
+        },
+
+        getInitialState: function() {
+          return {
+            pageTitle: this.props.pageTitle,
+          };
+        },
+
+        _somethingChanged: function() {
+          this.setState({
+            pageTitle: "_somethingChanged",        
+          });
+        },
+
+        _backToNormal: function() {
+          this.setState({
+            pageTitle: "Top Stories",        
+          });
         },
 
         _renderHeader: function() {
@@ -53,12 +98,14 @@
             React.DOM.ul(
               {className: "header-nav"},    
               //should be changed to a list, potentially sourced from a database  
-              React.DOM.li({className: "header-nav-item", key: "home"}, "Home"),
+              React.DOM.li({className: "header-nav-item", key: "home", 
+                onClick: this._backToNormal}, "Home"),
               React.DOM.li({className: "header-nav-item", key: "world"}, "World"),
               React.DOM.li({className: "header-nav-item", key: "us"}, "U.S."),
               React.DOM.li({className: "header-nav-item", key: "poliics"}, "Politics"),
               React.DOM.li({className: "header-nav-item", key: "ny"}, "N.Y."),
-              React.DOM.li({className: "header-nav-item", key: "more"}, "More")
+              React.DOM.li({className: "header-nav-item", key: "more",
+                onClick: this._somethingChanged}, "More")
             )
           )
         },
@@ -66,7 +113,7 @@
         _renderPageTitle: function() {
           return (
             React.DOM.div({className: ""}, 
-              React.DOM.h2({className: "page-title", key: ""}, "Top Stories")
+              React.DOM.h2({onClick: alert, className: "page-title", key: ""}, this.state.pageTitle)
             )
           )
         },
