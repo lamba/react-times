@@ -46,6 +46,10 @@ li:first-child {
 	border-bottom: 0.2em solid #2A96CE;
 }
 
+li:first-child:hover, li:last-child:hover {
+	cursor: pointer;
+}
+
 .header {
 	top:0em;	
 	height:6em;
