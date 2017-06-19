@@ -1,0 +1,11 @@
+#all versions
+heroku.log
+
+#v0.1.x
+/mongodb
+
+#v0.2.x
+/node_modules
+
+npm-debug.log
+
