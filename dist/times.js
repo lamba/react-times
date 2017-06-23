@@ -22,18 +22,21 @@ var Times = React.createClass({
   },
 
   componentDidMount: function componentDidMount() {
-    var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-        targetUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    var articles;
 
-    fetch(proxyUrl + targetUrl, {
-      params: {
-        'api-key': "933ec882c25c40c388ba892e07e4204c"
-      },
-      headers: {
-        'Access-Control-Allow-Origin': '*'
+    fetch('https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=933ec882c25c40c388ba892e07e4204c').then(function (response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' + response.status);
+        return;
       }
-    }).then(function (response) {
-      console.log(response.data);
+
+      // Examine the text in the response  
+      response.json().then(function (data) {
+        console.log(data);
+        articles = JSON.parse(data);
+      });
+    }).catch(function (err) {
+      console.log('Fetch Error :-S', err);
     });
   },
 
@@ -68,12 +71,18 @@ var Times = React.createClass({
       onClick: this._somethingChanged }, "More"));
   },
 
+  //enable jsx later maybe - it's harder to debug when babel changes the line numbers in the generated js
+  // _renderPageTitle: function() {
+  //   return (
+  //     <div key="">
+  //       <h2 className="page-title" key="page-title">
+  //       </h2>
+  //     </div>
+  //   )
+  // },
+
   _renderPageTitle: function _renderPageTitle() {
-    return React.createElement(
-      "div",
-      { key: "" },
-      React.createElement("h2", { className: "page-title", key: "page-title" })
-    );
+    return React.DOM.div({ className: "" }, React.DOM.h2({ className: "page-title", key: "page-title" }));
   },
 
   _renderArticleTopSection: function _renderArticleTopSection() {

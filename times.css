@@ -145,6 +145,36 @@ input:focus {
 	margin-bottom: 2em;
 }
 
+.article-promo-13-title {
+	position: relative;
+	color: #000000;
+	top: 0em;
+	margin-left: 0.5em;
+	font-size: 100%;
+	width: 14em;
+	float: left;
+}
+
+.article-promo-13-byline {
+	position: relative;
+	color: #cccccc;
+	margin-left: 1em;
+	top: 3em;
+	width: 12em;
+	font-size: 85%;
+	float: left;
+}
+
+.article-promo-13-date-time {
+	position: relative;
+	color: #00008B;
+	margin-left: 0em;
+	top: 3em;
+	width: 6em;
+	font-size: 85%;
+	float: left;
+}
+
 .article-promo-23-width-top {
 	position: relative;
 	top: 0em;
@@ -156,17 +186,19 @@ input:focus {
 }
 
 .article-promo-23-width-detail {
-	width: 18em;
+	width: 20em;
 	float: left;
 }
 
 .article-promo-23-title {
+	margin-top: 0em;
 	position: relative;
 	color: #000000;
 	margin-left: 0.5em;
-	font-size: 200%;
-	width: 6em;
+	font-size: 175%;
+	width: 10em;
 	float: left;
+	margin-bottom: 0em;
 }
 
 .article-promo-23-byline {
@@ -174,17 +206,20 @@ input:focus {
 	color: #ffffff;
 	margin-left: 1em;
 	top: 0em;
-	width: 9em;
+	width: 14em;
 	font-size: 85%;
 	float: left;
+	margin-top: 1em;
 }
 
 .article-promo-23-date-time {
 	color: #00008B;
-	margin-left: 1em;
-	width: 8em;
+	margin-left: 0.5em;
+	width: 6em;
 	float: left;
 	font-size: 85%;
+	top: 0em;
+	margin-top: 1em;
 }
 
 .article-promo-23-body {
@@ -192,15 +227,42 @@ input:focus {
 	top: 2em;
 	margin-left: 2em;
 	color: #666666;
+	width: 28em;
 }
 
 .image-large {
-	background: #cccccc;
-	height: 12em;
+	background: #cccccc;	
 	width: 12em;
 	float: left;
 	color: #ffffff;
 	text-align: center;
+	margin: auto;
+	display: block;
+
+}
+
+.img-lg {
+	background: #cccccc;
+	max-width: 12em;
+	max-height: 12em;
+	width: auto;
+	height: auto;
+	float: left;
+	color: #ffffff;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.img-sm {
+	background: #cccccc;
+	max-width: 10em;
+	max-height: 10em;
+	width: auto;
+	height: auto;
+	float: left;
+	color: #ffffff;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .image-small {
@@ -233,8 +295,9 @@ input:focus {
 	position: relative;
 	color: #aaaaaa;
 	margin-left: 1em;
-	top: 3em;
-	width: 9em;
+	margin-top: 1em;
+	top: 0em;
+	width: 20em;
 	float: left;
 	font-size: 85%;
 }
@@ -243,8 +306,9 @@ input:focus {
 	position: relative;
 	color: #00008B;
 	margin-left: 1em;
-	top: 3em;
-	width: 8em;
+	margin-top: 1em;
+	top: 0em;
+	width: 20em;
 	float: left;
 	font-size: 85%;
 }
@@ -253,15 +317,18 @@ input:focus {
 	position: relative;
 	color: #000000;
 	margin-left: 0.5em;
-	font-size: 200%;
-	width: 4em;
+	font-size: 175%;
+	width: 22em;
+	margin-bottom: 0em;
 }
 
 .article-promo-body {
 	position: relative;
+	top: 0em;
 	color: #666666;
+	margin-top: 0em;
 	margin-left: 2em;
-	width: 8em;
+	width: 36em;
 	font-size: 100%;
 }
 
