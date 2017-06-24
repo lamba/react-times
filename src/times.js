@@ -80,6 +80,9 @@ var
       articles.response.docs[i].date_time = date_time;
       articles.response.docs[i].url = url;
       articles.response.docs[i].key = article._id;
+      if (url !== "nyt.png") {
+        articles.topSectionIndex = i;
+      };
     };
     return articles;
   },
@@ -88,7 +91,6 @@ var
     return {
       pageTitle: this.props.pageTitle,
       articles: this.props.articles,
-      article: null,
     };
   },
 
@@ -151,7 +153,7 @@ var
   _renderArticleTopSection: function() {
     return (
       React.DOM.div({className: "article-top-section"}, 
-        this._renderArticlePromo23Width(0),
+        this._renderArticlePromo23Width(this.state.articles.topSectionIndex),
         this._renderArticlePromo13(1),
         this._renderArticlePromo13(2)
       )
