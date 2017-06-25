@@ -340,7 +340,7 @@ input:focus {
 	right: 0;
 }
 
-.next {
+.next, .pageNumber {
 	position: relative;
 	background-color: #cccccc;
 	border: none;
@@ -361,6 +361,11 @@ input:focus {
 
 .next:focus {
 	outline: none;
+}
+
+.pageNumber {
+	background-color: #ffffff;
+	color: #666666;
 }
 
 .footer {

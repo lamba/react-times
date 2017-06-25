@@ -344,6 +344,7 @@ var
     return (
       React.DOM.div({className: "pagination"},
         React.DOM.button({className: "next", disabled: !this.state.enablePrevious, onClick: this._previous}, "Previous"),
+        React.DOM.button({className: "pageNumber", disabled: true}, "Page " + this.state.page),
         React.DOM.button({className: "next", disabled: false, onClick: this._next}, "Next")
       )
     );
