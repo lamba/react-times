@@ -85,7 +85,7 @@ input:focus {
 	color: #ffffff;
 }
 
-.header-text {
+.header-text, .header-subtext {
 	position: absolute;
 	color: white;
 	font-family: arial;
@@ -93,8 +93,14 @@ input:focus {
 	margin-top: 1.25em;
 	margin-bottom: 1em;
 	text-align: center;
-	width: 6em;
-	margin-left: 42%;
+	width: 12em;
+	margin-left: 30%;
+}
+
+.header-subtext {
+	top: 7em;
+	font-size: 25%;
+	margin-left: 41%;
 }
 
 .header-nav {

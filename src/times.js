@@ -133,7 +133,8 @@ var
     return (
       React.DOM.div(
         {className: "header"}, 
-        React.DOM.p({className: "header-text", key: "header-text"}, "THE TIMES"),
+        React.DOM.p({className: "header-text", key: "header-text"}, "THE NEW YORK TIMES"),
+        React.DOM.p({className: "header-subtext", key: "header-subtext"}, "By Puneet Lamba"),
         React.DOM.input({className: "search", key: "search", placeholder: "Search"})
       )
     )
