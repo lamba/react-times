@@ -48,7 +48,6 @@ var
   },
 
   _fetch: function() {
-    console.log("page="+this.state.page);
     window.scrollTo(0, 0);
     if (this.state.page > 1) {
       this.setState({enablePrevious:true});
@@ -75,7 +74,7 @@ var
           }
           // Examine the text in the response  
           response.json().then(function(data) {  
-            console.log(data);  
+            //console.log(data);  
             self.setState({articles: self._processArticles(data)});
           });  
         }  
@@ -117,7 +116,7 @@ var
   },
   
   _somethingChanged: function() {
-    console.log("_somethingChanged");
+    //console.log("_somethingChanged");
     this.setState({
       pageTitle: "_somethingChanged",        
     });

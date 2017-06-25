@@ -55,6 +55,7 @@ li.header-nav-item:first-child:hover, li.header-nav-item:last-child:hover {
 	top:0em;	
 	height:6em;
   	background: #333333;
+  	text-align: center;
 }
 
 .search {
@@ -92,15 +93,14 @@ input:focus {
 	font-size: 175%;
 	margin-top: 1.25em;
 	margin-bottom: 1em;
-	text-align: center;
 	width: 12em;
-	margin-left: 30%;
+	margin: auto;
 }
 
 .header-subtext {
 	top: 7em;
 	font-size: 25%;
-	margin-left: 41%;
+	margin: auto;
 }
 
 .header-nav {
