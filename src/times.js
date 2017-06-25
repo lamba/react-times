@@ -36,16 +36,42 @@ var
     }
   },
   
+  getInitialState: function() {
+    return {
+      pageTitle: this.props.pageTitle,
+      articles: this.props.articles,
+      page: 1,
+      enablePrevious: false,
+    };
+  },
+
   componentDidMount() {
+    console.log("componentDidMount");
+    this._fetch();
+    //this.findDOMNode().scrollTo(0, 0);
+    //this.node.scrollTo(0, 0);
+    //this._topDOMNode().scrollIntoView();
+  },
+
+  _fetch: function() {
+    console.log("page="+this.state.page);
+    window.scrollTo(0, 0);
+    if (this.state.page > 1) {
+      this.setState({enablePrevious:true});
+    } else {
+      this.setState({enablePrevious:false});
+    };
     var 
-      that = this,
+      self = this,
       url = '',
       queryString = '';
     url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     queryString = '?'
       + 'api-key=933ec882c25c40c388ba892e07e4204c'
       + '&'
-      + 'begin_date=20170622';
+      + 'begin_date=20170622'
+      + '&'
+      + 'page=' + self.state.page;
     fetch(url + queryString)
       .then(  
         function(response) {  
@@ -56,7 +82,7 @@ var
           // Examine the text in the response  
           response.json().then(function(data) {  
             console.log(data);  
-            that.setState({articles:that._processArticles(data)});
+            self.setState({articles: self._processArticles(data)});
           });  
         }  
       )  
@@ -65,8 +91,17 @@ var
       });
   },
 
+  _next: function() {
+    this.setState({page: this.state.page + 1}, this._fetch);
+  },
+
+  _previous: function() {
+    this.setState({page: this.state.page - 1}, this._fetch);
+  },
+
   _processArticles: function(data) {
     const articles = data;
+    articles.topSectionIndex = 0;
     for (var i = 0; i < articles.response.docs.length; i++) {
       const article = articles.response.docs[i];
       const date = (new Date(article.pub_date));
@@ -87,14 +122,8 @@ var
     return articles;
   },
   
-  getInitialState: function() {
-    return {
-      pageTitle: this.props.pageTitle,
-      articles: this.props.articles,
-    };
-  },
-
   _somethingChanged: function() {
+    console.log("_somethingChanged");
     this.setState({
       pageTitle: "_somethingChanged",        
     });
@@ -314,11 +343,23 @@ var
       )
     )
   },
+
+  //jsx version for troubleshooting  
+  // _renderPaginationJsx: function() {
+  //   return (
+  //     <div>
+  //       <button className="next" type="Button" onClick={this._somethingChanged}>Next</button>
+  //     </div>
+  //   );
+  // },
   
   _renderPagination: function() {
     return (
-      React.DOM.div({className: "pagination", key: "pagination"}, "")
-    )
+      React.DOM.div({className: "pagination"},
+        React.DOM.button({className: "next", disabled: !this.state.enablePrevious, onClick: this._previous}, "Previous"),
+        React.DOM.button({className: "next", disabled: false, onClick: this._next}, "Next")
+      )
+    );
   },
   
   _renderFooter: function() {

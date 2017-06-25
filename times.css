@@ -5,6 +5,7 @@
 .article-promo-23-width, 
 .article-promo-full-width-detail,
 .article-promo-13,
+.next,
 .footer {
 	box-shadow: 0.05em 0.05em .5em #cccccc;
 	left: 0;
@@ -42,11 +43,11 @@ li {
 	font-weight: 400;
 }
 
-li:first-child {
+li.header-nav-item:first-child {
 	border-bottom: 0.2em solid #2A96CE;
 }
 
-li:first-child:hover, li:last-child:hover {
+li.header-nav-item:first-child:hover, li.header-nav-item:last-child:hover {
 	cursor: pointer;
 }
 
@@ -330,6 +331,36 @@ input:focus {
 	margin-left: 2em;
 	width: 36em;
 	font-size: 100%;
+}
+
+.pagination {
+	text-align: center;
+	display: block;
+	left: 0;
+	right: 0;
+}
+
+.next {
+	position: relative;
+	background-color: #cccccc;
+	border: none;
+	height: 2em;
+	width: 6em;
+	text-align: center;
+	font-size: 100%;
+	color: #ffffff;
+	top: 3em;
+	z-index: 1;
+	margin: 1em;
+}
+
+.next:enabled:hover {
+	background-color: #666666;
+	cursor: pointer;
+}
+
+.next:focus {
+	outline: none;
 }
 
 .footer {
