@@ -94,13 +94,13 @@ input:focus {
 	margin-top: 1.25em;
 	margin-bottom: 1em;
 	width: 12em;
-	margin: auto;
+	margin-left: 30%;
 }
 
 .header-subtext {
 	top: 7em;
 	font-size: 25%;
-	margin: auto;
+	margin-left: 41%;
 }
 
 .header-nav {
