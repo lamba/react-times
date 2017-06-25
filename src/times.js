@@ -8,8 +8,6 @@ var
   },
   
   getDefaultProps: function() {
-    var 
-      articles = {title: "Title1", body: "Body1", byline: "By Puneet Lamba", datetime: "8:50 AM ET"};
     return {
       pageTitle: "Top Stories",
       articles: null,
