@@ -35,10 +35,11 @@ ul {
 }
 
 li {
-	margin-top: 0.5em;
+	margin-top: 0.75em;
 	list-style: none;
 	padding-right: 1.5em;
 	padding-bottom: 0.6em;
+	padding-top: 0.25em;
 	font-size: 90%;
 }
 
