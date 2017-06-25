@@ -39,15 +39,15 @@ li {
 	list-style: none;
 	padding-right: 1.5em;
 	padding-bottom: 0.6em;
-	font-size: 125%;
-	font-weight: 400;
+	font-size: 90%;
 }
 
-li.header-nav-item:first-child {
+li.header-nav-item.active {
 	border-bottom: 0.2em solid #2A96CE;
 }
 
-li.header-nav-item:first-child:hover, li.header-nav-item:last-child:hover {
+li.header-nav-item:hover {
+	background-color: #cccccc;
 	cursor: pointer;
 }
 

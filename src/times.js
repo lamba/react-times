@@ -40,6 +40,8 @@ var
       articles: this.props.articles,
       page: 1,
       enablePrevious: false,
+      fq: null,
+      activeMenu: 'Home',
     };
   },
 
@@ -65,6 +67,11 @@ var
       + 'begin_date=20170622'
       + '&'
       + 'page=' + self.state.page;
+    if (self.state.fq !== null) {
+      queryString = queryString
+      + '&'
+      + 'fq=section_name:("' + self.state.fq + '")';
+    };
     fetch(url + queryString)
       .then(  
         function(response) {  
@@ -74,7 +81,7 @@ var
           }
           // Examine the text in the response  
           response.json().then(function(data) {  
-            //console.log(data);  
+            console.log(data);  
             self.setState({articles: self._processArticles(data)});
           });  
         }  
@@ -138,19 +145,39 @@ var
       )
     )
   },
+
+  _isActive: function(item) {
+    return (this.state.activeMenu === item ? "header-nav-item active" : "header-nav-item");
+  },
   
+  _setFq: function(filter) {
+    this.setState({
+      fq: (filter === "Home" ? null : filter),
+      activeMenu: filter,
+      pageTitle: (filter === "Home" ? "Top Stories" : filter),        
+    }, this._fetch);
+  },
+
   _renderHeaderNav: function() {
     return (
       React.DOM.ul(
         {className: "header-nav"},    
-        React.DOM.li({className: "header-nav-item", key: "home", 
-          onClick: this._backToNormal}, "Home"),
-        React.DOM.li({className: "header-nav-item", key: "world"}, "World"),
-        React.DOM.li({className: "header-nav-item", key: "us"}, "U.S."),
-        React.DOM.li({className: "header-nav-item", key: "poliics"}, "Politics"),
-        React.DOM.li({className: "header-nav-item", key: "ny"}, "N.Y."),
-        React.DOM.li({className: "header-nav-item", key: "more",
-          onClick: this._somethingChanged}, "More")
+        React.DOM.li({className: this._isActive("Home"), key: "Home", 
+          onClick: this._setFq.bind(this, "Home")}, "Home"),
+        React.DOM.li({className: this._isActive("World"), key: "World", 
+          onClick: this._setFq.bind(this, "World")}, "World"),
+        React.DOM.li({className: this._isActive("U.S."), key: "U.S.", 
+          onClick: this._setFq.bind(this, "U.S.")}, "U.S."),
+        React.DOM.li({className: this._isActive("Style"), key: "Style", 
+          onClick: this._setFq.bind(this, "Style")}, "Style"),
+        React.DOM.li({className: this._isActive("Sports"), key: "Sports", 
+          onClick: this._setFq.bind(this, "Sports")}, "Sports"),
+        React.DOM.li({className: this._isActive("Opinion"), key: "Opinion", 
+          onClick: this._setFq.bind(this, "Opinion")}, "Opinion"),
+        React.DOM.li({className: this._isActive("Business"), key: "Business", 
+          onClick: this._setFq.bind(this, "Business")}, "Business"),
+        React.DOM.li({className: this._isActive("Technology"), key: "Technology", 
+          onClick: this._setFq.bind(this, "Technology")}, "Technology")
       )
     )
   },
