@@ -46,11 +46,7 @@ var
   },
 
   componentDidMount() {
-    console.log("componentDidMount");
     this._fetch();
-    //this.findDOMNode().scrollTo(0, 0);
-    //this.node.scrollTo(0, 0);
-    //this._topDOMNode().scrollIntoView();
   },
 
   _fetch: function() {
@@ -344,15 +340,6 @@ var
     )
   },
 
-  //jsx version for troubleshooting  
-  // _renderPaginationJsx: function() {
-  //   return (
-  //     <div>
-  //       <button className="next" type="Button" onClick={this._somethingChanged}>Next</button>
-  //     </div>
-  //   );
-  // },
-  
   _renderPagination: function() {
     return (
       React.DOM.div({className: "pagination"},
