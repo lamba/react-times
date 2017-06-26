@@ -173,6 +173,7 @@ var
       activeMenu: filter,
       pageTitle: (filter === "Home" ? "Top Stories" : filter),  
       q: null,      
+      page: 1,
     }, this._fetch);
   },
 
