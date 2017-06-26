@@ -60,22 +60,23 @@ var
     var 
       self = this,
       url = '',
-      today = new Date(),
+      date = new Date(),
       mm,
       dd,
       yyyy,
       queryString = '';
-    yyyy = '' + today.getFullYear();
-    mm = today.getMonth()+1;
+    date.setDate(date.getDate() - 7);
+    yyyy = '' + date.getFullYear();
+    mm = date.getMonth()+1;
     if (mm < 10) {mm = '0' + mm};
-    dd = today.getDate();
+    dd = date.getDate();
     if (dd < 10) {dd = '0' + dd};
-    today = yyyy + mm + dd;
+    date = yyyy + mm + dd;
     url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     queryString = '?'
       + 'api-key=933ec882c25c40c388ba892e07e4204c'
       + '&'
-      + 'begin_date=' + today
+      + 'begin_date=' + date
       + '&'
       + 'page=' + self.state.page;
     if (self.state.fq !== null) {
