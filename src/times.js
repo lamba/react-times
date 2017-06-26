@@ -122,19 +122,6 @@ var
     return articles;
   },
   
-  _somethingChanged: function() {
-    //console.log("_somethingChanged");
-    this.setState({
-      pageTitle: "_somethingChanged",        
-    });
-  },
-
-  _backToNormal: function() {
-    this.setState({
-      pageTitle: "Top Stories",        
-    });
-  },
-
   _renderHeader: function() {
     return (
       React.DOM.div(
