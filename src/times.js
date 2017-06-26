@@ -71,7 +71,6 @@ var
     dd = today.getDate();
     if (dd < 10) {dd = '0' + dd};
     today = yyyy + mm + dd;
-    console.log(today);
     url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     queryString = '?'
       + 'api-key=933ec882c25c40c388ba892e07e4204c'
