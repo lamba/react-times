@@ -37,7 +37,7 @@ var
   getInitialState: function() {
     return {
       pageTitle: this.props.pageTitle,
-      articles: this.props.articles,
+      articles: null,
       page: 1,
       enablePrevious: false,
       fq: null,
@@ -98,12 +98,18 @@ var
           // Examine the text in the response  
           response.json().then(function(data) {  
             console.log(data);  
-            self.setState({articles: self._processArticles(data)});
+            //self.setState({articles: self._processArticles(data)});
+            if (data.response.docs.length === 0) {
+              //if no results due to typo in search string etc, reset to initial state
+            } else {
+              self.setState({articles: self._processArticles(data)});
+            };
           });  
         }  
       )  
       .catch(function(err) {  
         console.log('Fetch Error :-S', err);  
+        self.setState({articles: null});
       });
   },
 
