@@ -42,6 +42,7 @@ var
       enablePrevious: false,
       fq: null,
       activeMenu: 'Home',
+      q: null,
     };
   },
 
@@ -71,6 +72,11 @@ var
       queryString = queryString
       + '&'
       + 'fq=section_name:("' + self.state.fq + '")';
+    };
+    if (self.state.q !== null) {
+      queryString = queryString
+      + '&'
+      + 'q=' + self.state.q;
     };
     fetch(url + queryString)
       .then(  
@@ -128,9 +134,16 @@ var
         {className: "header"}, 
         React.DOM.p({className: "header-text", key: "header-text"}, "THE NEW YORK TIMES"),
         React.DOM.p({className: "header-subtext", key: "header-subtext"}, "By Puneet Lamba"),
-        React.DOM.input({className: "search", key: "search", placeholder: "Search"})
+        React.DOM.input({className: "search", key: "search", placeholder: "Search", onKeyDown: this._search})
       )
     )
+  },
+
+  _search: function(event) {
+    if (event.keyCode === 13) {
+      this.setState({q:event.target.value}, this._fetch);
+      event.target.value = null;
+    };
   },
 
   _isActive: function(item) {
@@ -141,7 +154,8 @@ var
     this.setState({
       fq: (filter === "Home" ? null : filter),
       activeMenu: filter,
-      pageTitle: (filter === "Home" ? "Top Stories" : filter),        
+      pageTitle: (filter === "Home" ? "Top Stories" : filter),  
+      q: null,      
     }, this._fetch);
   },
 
