@@ -164,7 +164,10 @@ var
 
   _search: function(event) {
     if (event.keyCode === 13) {
-      this.setState({q:event.target.value}, this._fetch);
+      this.setState({
+        q:event.target.value,
+        page:1
+      }, this._fetch);
       event.target.value = null;
     };
   },
