@@ -22,6 +22,7 @@ var
           React.DOM.div(null, 
             this._renderHeader(),
             this._renderHeaderNav(),
+            this._renderMessage(),
             this._renderPageTitle(),
             this._renderArticleTopSection(),
             this.state.articles.response.docs.map(this._renderArticlePromoFullWidth),
@@ -43,6 +44,7 @@ var
       fq: null,
       activeMenu: 'Home',
       q: null,
+      message: '',
     };
   },
 
@@ -102,8 +104,12 @@ var
             //self.setState({articles: self._processArticles(data)});
             if (data.response.docs.length === 0) {
               //if no results due to typo in search string etc, reset to initial state
+              self.setState({message: 'No search results found for: ' + self.state.q});
             } else {
-              self.setState({articles: self._processArticles(data)});
+              self.setState({
+                articles: self._processArticles(data),
+                message: (self.state.q !== null ? 'Search results for: ' + self.state.q : '')
+              });
             };
           });  
         }  
@@ -215,6 +221,14 @@ var
     return (
       React.DOM.div({className: ""},
         React.DOM.h2({className: "page-title", key: "page-title"}, this.state.pageTitle)
+      )
+    )
+  },
+
+  _renderMessage: function() {
+    return (
+      React.DOM.div({className: ""},
+        React.DOM.p({className: "message", key: "message"}, this.state.message)
       )
     )
   },

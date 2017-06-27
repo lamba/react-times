@@ -6,7 +6,8 @@
 .article-promo-full-width-detail,
 .article-promo-13,
 .next,
-.footer {
+.footer,
+.message {
 	box-shadow: 0.05em 0.05em .5em #cccccc;
 	left: 0;
 	right: 0;
@@ -127,6 +128,18 @@ input:focus {
 	font-size: 250%;
 	font-family: times;
 	margin-left: 2.5em;
+}
+
+.message {
+	position: relative;
+	top: 12em;
+	border: #000000;
+	box-shadow: 0 0 0 0;
+	text-align: center;
+	font-style: italic;
+	color: #abc;
+	font-size: 75%;
+	height: 1em;
 }
 
 .article-top-section {
