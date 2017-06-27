@@ -183,6 +183,7 @@ var
       pageTitle: (filter === "Home" ? "Top Stories" : filter),  
       q: null,      
       page: 1,
+      message: '',
     }, this._fetch);
   },
 
