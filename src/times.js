@@ -41,6 +41,7 @@ var
       articles: null,
       page: 1,
       enablePrevious: false,
+      enableNext: true,
       fq: null,
       activeMenu: 'Home',
       q: null,
@@ -104,7 +105,14 @@ var
             //self.setState({articles: self._processArticles(data)});
             if (data.response.docs.length === 0) {
               //if no results due to typo in search string etc, reset to initial state
-              self.setState({message: 'No search results found for: ' + self.state.q});
+              if (self.state.q !== null) {
+                self.setState({message: 'No search results found for: ' + self.state.q});                
+              } else {
+                self.setState({
+                  message: 'No more results found.',
+                  enableNext: false
+                });
+              }
             } else {
               self.setState({
                 articles: self._processArticles(data),
@@ -125,7 +133,10 @@ var
   },
 
   _previous: function() {
-    this.setState({page: this.state.page - 1}, this._fetch);
+    this.setState({
+      page: this.state.page - 1,
+      enableNext: true
+    }, this._fetch);
   },
 
   _processArticles: function(data) {
@@ -139,7 +150,7 @@ var
       const date_time = time + ' ' + am_pm + ' ET';
       const url = (article.multimedia.length > 0 ? "https://nytimes.com/" + article.multimedia[0].url : "nyt.png");
       articles.response.docs[i].title = article.headline.main;
-      articles.response.docs[i].body = article.lead_paragraph.substring(0, 320);
+      articles.response.docs[i].body = (article.lead_paragraph !== null ? article.lead_paragraph.substring(0, 320) : '');
       articles.response.docs[i].bline = article.byline.original;
       articles.response.docs[i].date_time = date_time;
       articles.response.docs[i].url = url;
@@ -407,7 +418,7 @@ var
       React.DOM.div({className: "pagination"},
         React.DOM.button({className: "next", disabled: !this.state.enablePrevious, onClick: this._previous}, "Previous"),
         React.DOM.button({className: "pageNumber", disabled: true}, "Page " + this.state.page),
-        React.DOM.button({className: "next", disabled: false, onClick: this._next}, "Next")
+        React.DOM.button({className: "next", disabled: !this.state.enableNext, onClick: this._next}, "Next")
       )
     );
   },
