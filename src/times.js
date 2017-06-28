@@ -195,6 +195,7 @@ var
       q: null,      
       page: 1,
       message: '',
+      enableNext: true,
     }, this._fetch);
   },
 
