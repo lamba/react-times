@@ -109,12 +109,13 @@ var
               if (self.state.q !== null) {
                 self.setState({
                   message: 'No search results found for: ' + self.state.q,
-                  error: true
+                  error: true,
+                  enableNext: false,
                 });                
               } else {
                 self.setState({
                   message: 'No more results found.',
-                  enableNext: false
+                  enableNext: false,
                 });
               }
             } else {
@@ -133,13 +134,16 @@ var
   },
 
   _next: function() {
-    this.setState({page: this.state.page + 1}, this._fetch);
+    this.setState({
+      page: this.state.page + 1
+    }, this._fetch);
   },
 
   _previous: function() {
     this.setState({
       page: this.state.page - 1,
-      enableNext: true
+      enableNext: true,
+      error: false,
     }, this._fetch);
   },
 
