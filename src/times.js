@@ -79,7 +79,7 @@ var
     queryString = '?'
       + 'api-key=933ec882c25c40c388ba892e07e4204c'
       + '&'
-      + 'begin_date=' + date
+      + 'begin_date=' + '20170101'//date
       + '&'
       + 'page=' + self.state.page;
     if (self.state.fq !== null) {
@@ -145,9 +145,13 @@ var
     for (var i = 0; i < articles.response.docs.length; i++) {
       const article = articles.response.docs[i];
       const date = (new Date(article.pub_date));
+      let year = '' + date.getFullYear();
+      year = year.substring(2,4);
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
       const time = (date.getHours() % 12) + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes());
-      const am_pm = (date.getHours() > 12 ? "PM" : "AM");
-      const date_time = time + ' ' + am_pm + ' ET';
+      const am_pm = (date.getHours() > 12 ? "p" : "a");
+      const date_time = month + '/' + day + ' ' + time + am_pm;
       const url = (article.multimedia.length > 0 ? "https://nytimes.com/" + article.multimedia[0].url : "nyt.png");
       articles.response.docs[i].title = article.headline.main;
       articles.response.docs[i].body = (article.lead_paragraph !== null ? article.lead_paragraph.substring(0, 320) : '');
