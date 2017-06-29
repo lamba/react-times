@@ -46,6 +46,7 @@ var
       activeMenu: 'Home',
       q: null,
       message: '',
+      error: false,
     };
   },
 
@@ -68,7 +69,7 @@ var
       dd,
       yyyy,
       queryString = '';
-    date.setDate(date.getDate() - 7);
+    date.setDate(date.getDate() - 180);
     yyyy = '' + date.getFullYear();
     mm = date.getMonth()+1;
     if (mm < 10) {mm = '0' + mm};
@@ -79,7 +80,7 @@ var
     queryString = '?'
       + 'api-key=933ec882c25c40c388ba892e07e4204c'
       + '&'
-      + 'begin_date=' + '20170101'//date
+      + 'begin_date=' + date
       + '&'
       + 'page=' + self.state.page;
     if (self.state.fq !== null) {
@@ -106,7 +107,10 @@ var
             if (data.response.docs.length === 0) {
               //if no results due to typo in search string etc, reset to initial state
               if (self.state.q !== null) {
-                self.setState({message: 'No search results found for: ' + self.state.q});                
+                self.setState({
+                  message: 'No search results found for: ' + self.state.q,
+                  error: true
+                });                
               } else {
                 self.setState({
                   message: 'No more results found.',
@@ -181,7 +185,8 @@ var
     if (event.keyCode === 13) {
       this.setState({
         q:event.target.value,
-        page:1
+        page:1,
+        error: false,
       }, this._fetch);
       event.target.value = null;
     };
@@ -200,6 +205,7 @@ var
       page: 1,
       message: '',
       enableNext: true,
+      error: false,
     }, this._fetch);
   },
 
@@ -248,7 +254,7 @@ var
   _renderMessage: function() {
     return (
       React.DOM.div({className: ""},
-        React.DOM.p({className: "message", key: "message"}, this.state.message)
+        React.DOM.p({className: "message" + (this.state.error ? " error" : ""), key: "message"}, this.state.message)
       )
     )
   },

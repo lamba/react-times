@@ -137,9 +137,13 @@ input:focus {
 	box-shadow: 0 0 0 0;
 	text-align: center;
 	font-style: italic;
-	color: #abc;
+	color: #2F91AC;
 	font-size: 75%;
 	height: 1em;
+}
+
+.message.error { 
+	color: #E16B1E;
 }
 
 .article-top-section {
@@ -180,7 +184,7 @@ input:focus {
 	position: relative;
 	color: #cccccc;
 	margin-left: 1em;
-	top: 3em;
+	top: 2em;
 	width: 12em;
 	font-size: 85%;
 	float: left;
@@ -190,7 +194,7 @@ input:focus {
 	position: relative;
 	color: #00008B;
 	margin-left: 0em;
-	top: 3em;
+	top: 2em;
 	width: 6em;
 	font-size: 85%;
 	float: left;
