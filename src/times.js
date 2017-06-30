@@ -267,8 +267,8 @@ var
     return (
       React.DOM.div({className: "article-top-section"}, 
         this._renderArticlePromo23Width(this.state.articles.topSectionIndex),
-        this._renderArticlePromo13(1),
-        this._renderArticlePromo13(2)
+        ((this.state.articles.response.docs.length > 1) ? this._renderArticlePromo13(1) : null),
+        ((this.state.articles.response.docs.length > 2) ? this._renderArticlePromo13(2) : null)
       )
     )
   },
