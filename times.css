@@ -38,7 +38,6 @@ ul {
 li {
 	margin-top: 0.75em;
 	list-style: none;
-	padding-right: 1.5em;
 	padding-bottom: 0.6em;
 	padding-top: 0.25em;
 	font-size: 90%;
@@ -57,7 +56,6 @@ li.header-nav-item:hover {
 	top:0em;	
 	height:6em;
   	background: #333333;
-  	text-align: center;
 }
 
 .search {
@@ -93,16 +91,15 @@ input:focus {
 	color: white;
 	font-family: arial;
 	font-size: 175%;
-	margin-top: 1.25em;
-	margin-bottom: 1em;
 	width: 12em;
-	margin-left: 30%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .header-subtext {
 	top: 7em;
 	font-size: 25%;
-	margin-left: 42%;
 }
 
 .header-nav {
@@ -113,9 +110,11 @@ input:focus {
 .header-nav-item {
 	text-align: center;
 	float: left;
-	padding-left: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
 	font-family: arial;
 	color: black;
+	width: 5em;
 }
 
 .page-title {
