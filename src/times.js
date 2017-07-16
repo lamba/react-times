@@ -179,7 +179,7 @@ var
       React.DOM.div(
         {className: "header"}, 
         React.DOM.p({className: "header-text", key: "header-text"}, "THE NEW YORK TIMES"),
-        React.DOM.p({className: "header-subtext", key: "header-subtext"}, "By Puneet Lamba"),
+        React.DOM.p({className: "header-subtext", key: "header-subtext"}, "Written Using REACT By Puneet Lamba, © Inventica.com, 2017"),
         React.DOM.input({className: "search", key: "search", placeholder: "Search", onKeyDown: this._search})
       )
     )
