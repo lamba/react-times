@@ -162,7 +162,7 @@ var
       const date_time = month + '/' + day + ' ' + time + am_pm;
       const url = (article.multimedia.length > 0 ? "https://nytimes.com/" + article.multimedia[0].url : "nyt.png");
       articles.response.docs[i].title = article.headline.main;
-      articles.response.docs[i].body = (article.lead_paragraph !== undefined ? article.lead_paragraph.substring(0, 310) : '');
+      articles.response.docs[i].body = (article.snippet !== undefined ? article.snippet.substring(0, 310) : '');
       articles.response.docs[i].bline = article.byline.original;
       articles.response.docs[i].date_time = date_time;
       articles.response.docs[i].url = url;
