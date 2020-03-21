@@ -78,7 +78,8 @@ var
     date = yyyy + mm + dd;
     url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     queryString = '?'
-      + 'api-key=933ec882c25c40c388ba892e07e4204c'
+//      + 'api-key=933ec882c25c40c388ba892e07e4204c'
+      + 'api-key=BsCTvz25ZwQn0jJXTl9JjWu3DWQKKiHH'
       + '&'
       + 'begin_date=' + date
       + '&'
