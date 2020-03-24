@@ -92,13 +92,13 @@ input:focus {
 	font-family: arial;
 	font-size: 175%;
 	width: 12em;
-    top: 20%;
+    top: 0%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .header-subtext {
-	top: 7em;
+	top: 15em;
 	font-size: 25%;
 	width: 30em;
 }

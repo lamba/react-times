@@ -69,7 +69,9 @@ var
       dd,
       yyyy,
       queryString = '';
-    date.setDate(date.getDate() - 180);
+    //looks like the date is being set back a few days to fetch enough results to make search useful
+    //but need to change logic so that default articles displayed are the latest ones
+    date.setDate(date.getDate() - 0); 
     yyyy = '' + date.getFullYear();
     mm = date.getMonth()+1;
     if (mm < 10) {mm = '0' + mm};
@@ -78,8 +80,8 @@ var
     date = yyyy + mm + dd;
     url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     queryString = '?'
-//      + 'api-key=933ec882c25c40c388ba892e07e4204c'
-      + 'api-key=BsCTvz25ZwQn0jJXTl9JjWu3DWQKKiHH'
+//      + 'api-key=933ec882c25c40c388ba892e07e4204c' 
+      + 'api-key=BsCTvz25ZwQn0jJXTl9JjWu3DWQKKiHH' //updated march 2020
       + '&'
       + 'begin_date=' + date
       + '&'
